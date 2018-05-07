@@ -54,7 +54,7 @@ if __name__ == '__main__':
                                         "senders": {"$ne": None}, "recipients": {"$ne": None}},
                                        {"_id": 0, "recipients": 1, "senders": 1})
 
-    # we get a set of emails, adn add to each of the recipients and
+    # we get a set of emails, and add to each of the recipients and
     # senders from each of beldens contacts, to get contacts of contacts
     emails = set()
 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     datapoint = pca.transform(word_vec_2d)
     datapoint_df = pd.DataFrame(datapoint, columns=['x', 'y'])
 
-    # add int eh labels data to colour by the cluster labels
+    # add in the labels data to colour by the cluster labels
     datapoint_df['label'] = labels
 
     # colour pallette
@@ -139,7 +139,7 @@ if __name__ == '__main__':
     centroidpoint = pd.DataFrame(pca.transform(X), columns=['x', 'y'])
     print(centroidpoint)
 
-    # plot rhe graph as a scatter, hopefully they are arranges in a clustering
+    # plot the graph as a scatter, hopefully they are arranges in a clustering
     p1 = sns.lmplot(data=datapoint_df, x='x', y='y', fit_reg=False,
                     hue='label', scatter_kws={"s": 10})
 
