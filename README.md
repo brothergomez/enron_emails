@@ -1,2 +1,2 @@
 # Enron emails:
-A laguage and network analysis of the enron emails dataset
+A language and network analysis of the Enron emails dataset
