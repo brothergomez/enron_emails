@@ -2,6 +2,11 @@ import os
 import datetime
 from pymongo import MongoClient
 from email.parser import Parser
+from dateutil import parser as date_parser
+
+# gist taken from https://gist.github.com/k0emt/1120767 with updates to parse dates 
+# and to process senders and recipients
+# you will need an unzipped folder with the enron emails dataset
 
 __author__ = 'k0emt'
 MAIL_DIR_PATH = 'C:/Users/broth/Downloads/enron_mail_20150507.tar/maildir'
@@ -10,7 +15,7 @@ MAX_USER_RUN_LIMIT = 0
 MAX_USER_EMAILS_PER_FOLDER_FILE_LIMIT = 0
 counter = 1
 
-
+# open file as raw text and use eamil parser to parse info
 def get_file_contents(file_to_open_name):
     data_file = open(file_to_open_name)
     try:
@@ -20,12 +25,12 @@ def get_file_contents(file_to_open_name):
         data_file.close()
     return email
 
-
+# save to database with required fields, recipients will save as array
 def save_to_database(mailbox_owner_name, sub_folder, file_name, message_contents):
     document = {"mailbox": mailbox_owner_name,
                 "subFolder": sub_folder,
                 "filename": file_name,
-                "message_date": message_contents['date'],
+                "message_date": date_parser.parse(message_contents["message_date"]),
                 "senders": message_contents['from'],
                 "recipients": message_contents['to'],
                 "subject": message_contents['subject'].replace('\n', ''),
