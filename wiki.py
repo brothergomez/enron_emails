@@ -26,15 +26,15 @@ JAR_LOC = os.path.join(r'C:/Users/broth/Enron/stanford-ner',
 print(JAR_LOC)
 print(GZ_LOC)
 
-#get the text contents of the wiki page
+# get the text contents of the wiki page
 wikipage = wikipedia.WikipediaPage('Enron Scandal')
 wikitext = wikipage.content
 
-#run the NERtagger
+# run the NERtagger
 st = StanfordNERTagger(GZ_LOC, JAR_LOC)
 
 POI = set()
-# For each entity, add it to set if it's a pers or organisation, hopefully this outputs 
+# For each entity, add it to set if it's a pers or organisation, hopefully this outputs
 # interesting stuff
 for sent in sent_tokenize(wikitext):
     tokens = word_tokenize(sent)
