@@ -11,8 +11,6 @@ from time import time
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set_style("whitegrid")
-
 
 from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -74,15 +72,16 @@ if __name__ == "__main__":
             print(" %s" % terms[ind], end="")
         print()
 
+    # arrange the summary dataframe to pivot bymonth and date
     summary_df = emails_df
     summary_df["date"] = pd.to_datetime(summary_df["date"])
     summary_df["date"] = summary_df["date"].dt.strftime('%Y-%m')
     summary_df = pd.pivot_table(
         summary_df, values="_id", index="date", columns="label", aggfunc="count").fillna(0)
     print(summary_df)
-
+    # set plotting options and plot the rolling 3 month average
     sns.set_style("darkgrid")
-    plt.plot(pd.rolling_mean(summary_df, 3))
+    plt.plot(summary_df.rolling(summary_df, 3, center=False).mean())
     axes = plt.gca()
     axes.set_ylim([0, 450])
     plt.xticks(rotation=90)

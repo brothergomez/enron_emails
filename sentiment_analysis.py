@@ -70,6 +70,4 @@ summary = db.mail.aggregate([
        "$limit" :10
    }
 ])
-for doc in summary:
-    print("a")
-    print(doc)
+
