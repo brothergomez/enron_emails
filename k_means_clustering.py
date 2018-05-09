@@ -143,5 +143,4 @@ if __name__ == "__main__":
     p1 = sns.lmplot(data=datapoint_df, x="x", y="y", fit_reg=False,
                     hue="label", scatter_kws={"s": 10})
 
-    #sns.lmplot(data=centroidpoint, x="x", y="y")
     plt.show()
