@@ -1,6 +1,6 @@
 '''
 Code to get the wiki article on Enron, then  get all named entities using the stanford
-named entity recognition tool. We get organisations and people only, then manually
+named entity recognition tool. We get organizations and people only, then manually
 remove first names and common place names. 
 '''
 
@@ -18,7 +18,7 @@ import pprint
 java_path = r"C:/Program Files/Java/jdk1.8.0_151/bin/java.exe"
 os.environ['JAVAHOME'] = java_path
 
-# give stanfored NER paths to the gz and jar required
+# give Stanford NER paths to the gz and jar required
 GZ_LOC = os.path.join(r'C:/Users/broth/Enron/stanford-ner/classifiers',
                       r'english.all.3class.distsim.crf.ser.gz')
 JAR_LOC = os.path.join(r'C:/Users/broth/Enron/stanford-ner',
@@ -34,7 +34,7 @@ wikitext = wikipage.content
 st = StanfordNERTagger(GZ_LOC, JAR_LOC)
 
 POI = set()
-# For each entity, add it to set if it's a pers or organisation, hopefully this outputs
+# For each entity, add it to set if it's a person or organization, hopefully this outputs
 # interesting stuff
 for sent in sent_tokenize(wikitext):
     tokens = word_tokenize(sent)

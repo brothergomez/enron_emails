@@ -1,7 +1,7 @@
 """
-Analyiis of Enron emails, with a focus on Tim Belden
-Code to load tim beldens contacts, then get a list of their contacts whcih in turn we get emails from. 
-This amounts to a "neighbours of neighbours" search and will return a large subset of the enron mails. 
+Analysis of Enron emails, with a focus on Tim Belden
+Code to load tim beldens contacts, then get a list of their contacts which in turn we get emails from. 
+This amounts to a "neighbors of neighbors" search and will return a large subset of the enron mails. 
 
 Then performs a k means clustering and outputs the location of a few interesting parties emails, as well
 as the topics of each of the clusters. 
@@ -36,7 +36,7 @@ persons_of_interest = ["ken.lay@enron.com",
                        "richard.shapiro@enron.com",
                        "kenneth.lay@enron.com",
                        "klay@enron.com"]
-#  and the numebr of clusters:
+#  and the number of clusters:
 N_CLUSTERS = 10
 
 # Wrap everything in a if __name__ == "__main__":
@@ -133,7 +133,7 @@ if __name__ == "__main__":
     clrs = list(sns.color_palette("Set2", N_CLUSTERS))
     colours = [clrs[i] for i in labels]
 
-    # get the locations of the centroid poiunts and print, for reference
+    # get the locations of the centroid points and print, for reference
     X = clf.cluster_centers_
 
     centroidpoint = pd.DataFrame(pca.transform(X), columns=["x", "y"])

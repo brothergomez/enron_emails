@@ -1,5 +1,5 @@
 """
-Code to intesect the emails with a lsit of interesting topics, then flag each with 
+Code to intersect the emails with a list of interesting topics, then flag each with 
 a "message of interest : True value/ Takes about 20 minutes to run on the whole dataset
 """
 

@@ -17,7 +17,7 @@ MAX_USER_RUN_LIMIT = 0
 MAX_USER_EMAILS_PER_FOLDER_FILE_LIMIT = 0
 counter = 1
 
-# open file as raw text and use eamil parser to parse info
+# open file as raw text and use email parser to parse info
 
 
 def get_file_contents(file_to_open_name):

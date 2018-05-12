@@ -16,7 +16,7 @@ from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-#  and the numebr of clusters:
+#  and the number of clusters:
 N_CLUSTERS = 5
 
 # Wrap everything in a if __name__ == "__main__":
@@ -72,7 +72,7 @@ if __name__ == "__main__":
             print(" %s" % terms[ind], end="")
         print()
 
-    # arrange the summary dataframe to pivot bymonth and date
+    # arrange the summary dataframe to pivot by month and date
     summary_df = emails_df
     summary_df["date"] = pd.to_datetime(summary_df["date"])
     summary_df["date"] = summary_df["date"].dt.strftime('%Y-%m')
